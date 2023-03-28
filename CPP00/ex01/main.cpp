@@ -30,8 +30,6 @@ int main()
 			phonebook.add();
 		else if (command == SEARCH)
 			phonebook.search();
-		else if (command != "")
-			std::cout << LAMPRED "'" << command << "'" << " is not a valid instruction." RESET << std::endl;
 		else
 			std::cout << BOLDRED "Invalid command." RESET << std::endl;
 	}

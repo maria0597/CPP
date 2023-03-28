@@ -27,7 +27,7 @@ void PhoneBook::add(void)
 {
 	if (amount == MAX_CONTACTS)
 	{
-		std::cout << LAMPRED "-> It seems you have a lot of people to kill..." RESET << std::endl;
+		std::cout << BOLDYELLOW "-> It seems you have a lot of people to kill..." RESET << std::endl;
 		std::cout << BOLDYELLOW "-> I'll overwrite the last contact." RESET << std::endl;
 		amount--;
 	}

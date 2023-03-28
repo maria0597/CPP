@@ -72,41 +72,97 @@ Contact::~Contact()
 	;
 }
 
-void Contact::add()
-{
-	std::cout << BOLDRED "Enter name: ";
-	std::getline(std::cin, name);
-
-	std::cout << BOLDRED "Enter last name: ";
-	std::getline(std::cin, last_name);
-
-	std::cout << BOLDRED "Enter nickname: ";
-	std::getline(std::cin, nick);
-
-	std::cout << BOLDRED "Enter phone number: ";
-	std::getline(std::cin, phone_number);
-
-	std::cout << BOLDRED "Enter darkest secret: ";
-	std::getline(std::cin, darkest_secret);
-	encrypt();
-}
-
 void Contact::encrypt()
 {
 	int x = 0;
 
 	while(darkest_secret[x])
 		x++;
-    for (int i = 0; i < x && darkest_secret[i] != '\0'; i++)
-    {
-        darkest_secret[i] -= 30;
-    }
-    std::cout << "Contact encrypted." << std::endl;
+	for (int i = 0; i < x && darkest_secret[i] != '\0'; i++)
+	{
+		darkest_secret[i] -= 30;
+	}
+	std::cout << "Contact encrypted." << std::endl;
 }
 
-bool Contact::is_valid() const
+bool is_valid_phone_number(const std::string& phone_number)
 {
-	return !(name.empty() || last_name.empty() || phone_number.empty());
+	for (std::size_t i = 0; i < phone_number.length(); i++) {
+		if (!std::isdigit(phone_number[i]))
+			return false;
+	}
+	return true;
+}
+
+bool is_valid_name(const std::string& name)
+{
+	for (std::size_t i = 0; i < name.length(); i++) 
+	{
+		if (!std::isalpha(name[i]) || name == "")
+			return false;
+	}
+	return true;
+}
+
+void get_nonempty_input(std::string& input, const std::string& prompt)
+{
+	do {
+		std::cout << prompt;
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return;
+	} while (input.empty());
+
+	return;
+}
+
+void Contact::add()
+{
+	std::string input;
+	Contact new_contact;
+
+	get_nonempty_input(new_contact.name, "Enter contact first name: ");
+	get_nonempty_input(new_contact.last_name, "Enter contact last name: ");
+	get_nonempty_input(new_contact.nick, "Enter contact nickname: ");
+	get_nonempty_input(new_contact.phone_number, "Enter contact phone number: ");
+	get_nonempty_input(new_contact.darkest_secret, "Enter contact darkest secret: ");
+
+	std::cout << BOLDRED "Enter name: ";
+	std::getline(std::cin, input);
+	while (!is_valid_name(input)) 
+	{
+		std::cout << BOLDRED "Invalid input. Please enter a valid name: ";
+		std::getline(std::cin, input);
+	}
+	name = input;
+
+	std::cout << BOLDRED "Enter last name: ";
+	std::getline(std::cin, input);
+	while (!is_valid_name(input)) 
+	{
+		std::cout << BOLDRED "Invalid input. Please enter a valid last name: ";
+		std::getline(std::cin, input);
+	}
+	last_name = input;
+
+	std::cout << BOLDRED "Enter nickname: ";
+	std::getline(std::cin, nick);
+
+	std::cout << BOLDRED "Enter phone number: ";
+	std::getline(std::cin, input);
+	while (!is_valid_phone_number(input)) 
+	{
+		std::cout << BOLDRED "Invalid input. Please enter a valid phone number: ";
+		std::getline(std::cin, input);
+	}
+	phone_number = input;
+
+	std::cout << BOLDRED "Enter darkest secret: ";
+	std::getline(std::cin, input);
+	darkest_secret = input;
+	encrypt();
+
+	std::cout << BOLDGREEN "Contact added." RESET << std::endl;
 }
 
 static void	showstr(std::string str, std::size_t lim)

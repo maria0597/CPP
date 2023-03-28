@@ -14,8 +14,8 @@
 #define CONTACT_HPP
 
 # include <iostream>
-# include <iomanip>
-# include <cstring>
+//# include <iomanip>
+//# include <cstring>
 # include "colors.h"
 
 # define EXIT "EXIT"
@@ -47,14 +47,12 @@ class Contact
 		void set_phone_number(std::string new_phone_number);
 		void set_darkest_secret(std::string new_darkest_secret);
 		void display(int id);
-		
-		bool is_valid() const;
-		
+				
 		void encrypt();
 		
 		void show() const;
 
-        void add();
+		void add();
 };
 
 #endif
