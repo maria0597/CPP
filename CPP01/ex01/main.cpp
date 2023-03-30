@@ -5,36 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mardolin <mardolin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 16:31:24 by mardolin          #+#    #+#             */
-/*   Updated: 2023/03/29 15:44:33 by mardolin         ###   ########.fr       */
+/*   Created: 2023/03/29 15:21:04 by mardolin          #+#    #+#             */
+/*   Updated: 2023/03/29 15:21:06 by mardolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
 
 int main()
 {
-	PhoneBook phonebook;
+	int N;
 
-	std::cout << BOLDGREEN "Welcome to your personal PhoneBook!" << std::endl;
-
-	while (true) 
+	std::cout << BOLDGREEN "Watch out! Zombies!" RESET << std::endl;
+	std::cout << BOLDCYAN "How many zombies do you want in your horde? " RESET << std::flush;
+	std::cin >> N;
+	Zombie *z = zombieHorde(N, "LordKelvin");
+	for (int x = 0; x < N; x++)
 	{
-		if (std::cin.eof())
-			return 0;
-		std::cout << "Enter your command [ADD, SEARCH, EXIT]: ";
-		std::string command;
-		std::getline(std::cin, command);
-
-		if (command == EXIT)
-			break;
-		else if (command == ADD)
-			phonebook.add();
-		else if (command == SEARCH)
-			phonebook.search();
-		else
-			std::cout << BOLDRED "Invalid command." RESET << std::endl;
+		std::cout << "ohOHoh " << (x + 1) << " in vista: \n"<< RESET;
+		z[x].announce();
 	}
-	std::cout << BOLDRED "Exiting PhoneBook." RESET << std::endl;
+	delete [] z;
 	return 0;
-}
+} 

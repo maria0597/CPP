@@ -6,7 +6,7 @@
 /*   By: mardolin <mardolin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:30:35 by mardolin          #+#    #+#             */
-/*   Updated: 2023/03/28 16:30:37 by mardolin         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:51:51 by mardolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,18 @@ void PhoneBook::search(void)
 		std::cout << BOLDGREEN "> " RESET << BOLDYELLOW "Enter Index to display Informations or 8 to exit." RESET << std::endl;
 		std::cout << BOLDGREEN "> " RESET;
 		std::cin >> id;
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			exit(0);
+		}
 		if (id < 0 || (id >= this->amount && id != 8))
-			std::cout << LAMPRED "> " << "Invalid Index." RESET << std::endl;
+			std::cout << BOLDRED "> " << "Invalid Index." RESET << std::endl;
 		else if (id == 8)
 			;
 		else
 			this->contacts[id].show();
 		std::getline(std::cin, buf);
-		if (std::cin.eof())
-			return;
 		std::cout << std::endl;
 	}
 }
