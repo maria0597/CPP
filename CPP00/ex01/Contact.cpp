@@ -6,7 +6,7 @@
 /*   By: mardolin <mardolin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:31:10 by mardolin          #+#    #+#             */
-/*   Updated: 2023/03/29 15:00:36 by mardolin         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:28:17 by mardolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void Contact::encrypt()
 		x++;
 	for (int i = 0; i < x && darkest_secret[i] != '\0'; i++)
 	{
-		darkest_secret[i] -= 30;
+		darkest_secret[i] -= 42;
 	}
 	std::cout << "Contact encrypted." << std::endl;
 }
@@ -120,12 +120,6 @@ void Contact::add()
 {
 	std::string input;
 	Contact new_contact;
-
-	//get_nonempty_input(new_contact.name, "Enter contact first name: ");
-	//get_nonempty_input(new_contact.last_name, "Enter contact last name: ");
-	//get_nonempty_input(new_contact.nick, "Enter contact nickname: ");
-	//get_nonempty_input(new_contact.phone_number, "Enter contact phone number: ");
-	//get_nonempty_input(new_contact.darkest_secret, "Enter contact darkest secret: ");
 
 	std::cout << BOLDRED "Enter name: ";
 	std::getline(std::cin, input);

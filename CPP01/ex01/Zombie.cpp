@@ -6,7 +6,7 @@
 /*   By: mardolin <mardolin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:21:32 by mardolin          #+#    #+#             */
-/*   Updated: 2023/03/29 15:21:34 by mardolin         ###   ########.fr       */
+/*   Updated: 2023/03/31 11:40:29 by mardolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,3 @@ void	Zombie::setName(std::string name)
 {
 	this->name = name;
 }
-

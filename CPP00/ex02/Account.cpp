@@ -1,7 +1,5 @@
 #include "Account.hpp"
 #include <iostream>
-#include <iomanip>
-#include <ctime>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -30,6 +28,7 @@ int Account::getNbWithdrawals(void)
 
 void Account::displayAccountsInfos(void)
 {
+	_displayTimestamp();
 	std::cout << "Accounts: " << getNbAccounts()
 			  << "; total: " << getTotalAmount()
 			  << "; deposits: " << getNbDeposits()

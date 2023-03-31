@@ -6,7 +6,7 @@
 #    By: mardolin <mardolin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 16:30:30 by mardolin          #+#    #+#              #
-#    Updated: 2023/03/28 16:30:32 by mardolin         ###   ########.fr        #
+#    Updated: 2023/03/31 12:29:59 by mardolin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,11 @@ fclean:
 	$(MAKE) clean
 	$(RM) $(NAME)
 	@echo "\033[1m\033[35mExecutable removed!\033[0;37m"
+
+
+run:	$(NAME)
+		valgrind --leak-check=full --track-origins=yes ./$(NAME)
+		make fclean -C ./
 
 re: fclean all
 

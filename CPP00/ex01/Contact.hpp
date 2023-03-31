@@ -6,7 +6,7 @@
 /*   By: mardolin <mardolin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:31:18 by mardolin          #+#    #+#             */
-/*   Updated: 2023/03/28 16:31:19 by mardolin         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:19:04 by mardolin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define CONTACT_HPP
 
 # include <iostream>
-//# include <iomanip>
-//# include <cstring>
 # include "colors.h"
 
 # define EXIT "EXIT"
