@@ -1,7 +1,4 @@
-SRCS	= 	main.cpp	\
-			HumanA.cpp	\
-			HumanB.cpp	\
-			Weapon.cpp	\
+SRCS	= 	main.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -11,7 +8,7 @@ RM		= rm -f
 
 FLAG	= -Wall -Wextra -Werror -I. -std=c++98
 
-NAME	= UnnecessaryViolence
+NAME	= SedIs4L
 
 all: $(NAME)
 

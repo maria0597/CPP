@@ -1,7 +1,5 @@
 SRCS	= 	main.cpp	\
-			HumanA.cpp	\
-			HumanB.cpp	\
-			Weapon.cpp	\
+			harl.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -11,7 +9,7 @@ RM		= rm -f
 
 FLAG	= -Wall -Wextra -Werror -I. -std=c++98
 
-NAME	= UnnecessaryViolence
+NAME	= Harl
 
 all: $(NAME)
 
@@ -36,7 +34,7 @@ fclean:
 re: fclean all
 
 run:			$(NAME)
-				 valgrind --leak-check=full --track-origins=yes ./$(NAME)
+				 valgrind --leak-check=full --track-origins=yes ./$(NAME) DEBUG
 				make fclean -C ./
 
 .PHONY: all clean fclean re run
